@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Content Display</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Content from Text File:</h1>
+    <p id="textContent">Loading...</p>
+    
+    <script>
+        fetch('/content')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('textContent').textContent = data;
+            })
+            .catch(error => console.error('Error fetching content:', error));
+    </script>
+</body>
+</html>
